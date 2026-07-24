@@ -2,7 +2,7 @@
 {
     public class ReportItem
     {
-        public int Id { get; set; }   // 🔥 EKLENDİ (EN ÖNEMLİ SATIR)
+        public int Id { get; set; }   
 
         public string Time { get; set; }
 
