@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="ProductManager.AddProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="LeftToRight"
+             KeyDown="UserControl_KeyDown">
+
+    <Grid Background="#F3F4F6">
+
+        <Border Background="White"
+                CornerRadius="15"
+                Padding="20"
+                Width="420"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel HorizontalAlignment="Stretch">
+
+                    <!-- TITLE -->
+                    <TextBlock Text="➕ Yeni Ürün Ekle"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Margin="0,0,0,20"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <!-- CODE -->
+                    <TextBlock Text="Ürün Kodu"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtCode"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- NAME -->
+                    <TextBlock Text="Ürün Adı"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtName"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- CATEGORY -->
+                    <TextBlock Text="Kategori"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtCategory"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- BUY PRICE (USD) -->
+                    <TextBlock Text="Alış Fiyatı ($)"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtBuy"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- SELL PRICE (TRY) -->
+                    <TextBlock Text="Satış Fiyatı (₺)"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtSell"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- STOCK -->
+                    <TextBlock Text="Adet"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtStock"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- CONDITION -->
+                    <TextBlock Text="Ürün Durumu (Opsiyonel)"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Right"/>
+
+                    <TextBox x:Name="TxtCondition"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,10"/>
+
+                    <!-- SAVE -->
+                    <Button Content="Ürünü Kaydet"
+                            Height="40"
+                            Margin="0,15,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Save_Click"/>
+
+                    <!-- MESSAGE -->
+                    <TextBlock x:Name="TxtMsg"
+                               Foreground="Green"
+                               Margin="0,10,0,0"
+                               HorizontalAlignment="Right"
+                               TextAlignment="Right"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

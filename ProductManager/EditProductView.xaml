@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="ProductManager.EditProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="LeftToRight">
+
+    <Grid Background="#F3F4F6">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- LEFT: SEARCH + LIST -->
+        <Border Grid.Column="0"
+                Background="White"
+                Margin="10"
+                CornerRadius="10"
+                Padding="10">
+
+            <StackPanel>
+
+                <TextBlock Text=" Ürün Ara 🔍"
+                           FontSize="18"
+                           FontWeight="Bold"/>
+
+                <TextBox x:Name="TxtSearch"
+                         Height="35"
+                         Margin="0,10,0,10"/>
+
+                <Button Content="Ara"
+                        Height="35"
+                        Click="Search_Click"/>
+
+                <DataGrid x:Name="GridProducts"
+                          Margin="0,10,0,0"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionChanged="GridProducts_SelectionChanged">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Kod" Binding="{Binding Code}" Width="*"/>
+                        <DataGridTextColumn Header="Ad" Binding="{Binding Name}" Width="*"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </StackPanel>
+
+        </Border>
+
+        <!-- RIGHT: EDIT PANEL -->
+        <Border Grid.Column="1"
+                Background="White"
+                Margin="10"
+                CornerRadius="10"
+                Padding="20">
+
+            <StackPanel>
+
+                <TextBlock Text="✏ Ürünü Güncelle"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20"/>
+
+                <TextBlock Text="Ürün Kodu"/>
+                <TextBox x:Name="TxtCode" Height="35"/>
+
+                <TextBlock Text="Ürün Adı"/>
+                <TextBox x:Name="TxtName" Height="35"/>
+
+                <TextBlock Text="Kategori"/>
+                <TextBox x:Name="TxtCategory" Height="35"/>
+
+                <TextBlock Text="Ürün Durumu"/>
+                <TextBox x:Name="TxtCondition" Height="35"/>
+
+                <TextBlock Text="Alış Fiyatı"/>
+                <TextBox x:Name="TxtBuy" Height="35"/>
+
+                <TextBlock Text="Satış Fiyatı"/>
+                <TextBox x:Name="TxtSell" Height="35"/>
+
+                <TextBlock Text="Adet"/>
+                <TextBox x:Name="TxtStock" Height="35"/>
+
+                <Button Content=" Değişiklikleri Kaydet 💾"
+                        Height="45"
+                        Margin="0,20,0,0"
+                        Background="#10B981"
+                        Foreground="White"
+                        Click="Update_Click"/>
+
+                <TextBlock x:Name="TxtMsg"
+                           Foreground="Green"
+                           Margin="0,10,0,0"/>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

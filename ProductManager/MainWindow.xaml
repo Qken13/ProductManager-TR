@@ -1,0 +1,55 @@
+﻿<Window x:Class="ProductManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ürün Yönetici"
+        Height="650"
+        Width="1000"
+        FlowDirection="LeftToRight"
+        Background="#F3F4F6">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- SIDEBAR -->
+        <Border Grid.Column="0">
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#111827" Offset="0"/>
+                    <GradientStop Color="#1F2937" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel Margin="10">
+
+                <TextBlock Text="Ürün Yönetici"
+                           Foreground="#E5E7EB"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Margin="10"
+                           HorizontalAlignment="Center"/>
+
+                <!-- NEW HOME BUTTON -->
+                <Button Name="BtnHome" Content=" Ana Ekran 🏠"/>
+
+                <Button Name="BtnAdd" Content=" Ürün Ekle ➕"/>
+                <Button Name="BtnSearch" Content=" Ürün Arat🔍"/>
+                <Button Name="BtnSell" Content=" Ürün Sat 💰"/>
+                <Button Name="BtnEdit" Content=" Ürün Güncelle ✏"/>
+                <Button Name="BtnReport" Content=" Raporlar 📊"/>
+
+            </StackPanel>
+
+        </Border>
+
+        <!-- CONTENT -->
+        <ContentControl Name="MainContent"
+                        Grid.Column="1"
+                        Background="#F3F4F6"/>
+
+    </Grid>
+</Window>

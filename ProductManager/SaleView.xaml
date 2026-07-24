@@ -1,0 +1,186 @@
+﻿<UserControl x:Class="ProductManager.SaleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="LeftToRight">
+
+    <Grid Background="#F3F4F6">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ================= LEFT ================= -->
+
+        <Border Grid.Column="0"
+                Background="White"
+                Margin="10"
+                CornerRadius="10">
+
+            <Grid Margin="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+           Text="Ürün Ara"
+           FontSize="18"
+           FontWeight="Bold"/>
+
+                <TextBox Grid.Row="1"
+         x:Name="TxtSearch"
+         Height="35"
+         Margin="0,10,0,10"
+         KeyDown="TxtSearch_KeyDown"/>
+
+                <Button Grid.Row="2"
+        Content="Ara"
+        Height="35"
+        Click="Search_Click"/>
+
+                <DataGrid Grid.Row="3"
+          x:Name="GridProducts"
+          Margin="0,10,0,10"
+          AutoGenerateColumns="False"
+                          KeyDown="GridProducts_KeyDown">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Kod"
+                            Binding="{Binding Code}"/>
+
+                        <DataGridTextColumn Header="Ad"
+                            Binding="{Binding Name}"/>
+
+                        <DataGridTextColumn Header="Fiyat"
+                            Binding="{Binding SellPrice}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+                <Button Grid.Row="4"
+        Content="Sepete Ekle"
+        Height="40"
+        Click="AddToCart_Click"/>
+
+            </Grid>
+
+        </Border>
+
+        <!-- ================= RIGHT ================= -->
+
+        <Border Grid.Column="1"
+                Background="White"
+                Margin="10"
+                CornerRadius="10">
+
+            <Grid Margin="10">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="*"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- SEPET -->
+
+                <StackPanel Grid.Row="0">
+
+                    <TextBlock Text="Sepet"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"/>
+
+                </StackPanel>
+
+                <DataGrid Grid.Row="1"
+                          x:Name="GridCart"
+                          AutoGenerateColumns="False">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Ürün"
+                                            Binding="{Binding Name}"/>
+
+                        <DataGridTextColumn Header="Adet"
+                                            Binding="{Binding Quantity}"/>
+
+                        <DataGridTextColumn Header="Fiyat"
+                                            Binding="{Binding Price}"/>
+
+                        <DataGridTextColumn Header="Toplam"
+                                            Binding="{Binding Total}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+                <!-- ALT PANEL -->
+
+                <StackPanel Grid.Row="2"
+                            Margin="0,15,0,0">
+
+                    <TextBlock x:Name="TxtTotal"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Text="Toplam : 0"/>
+
+                    <TextBlock Text="Alınan Para Miktarı"
+                               Margin="0,12,0,4"
+                               FontWeight="Bold"/>
+
+                    <TextBox x:Name="TxtPaidAmount"
+         Height="35"
+         Text="0"
+         HorizontalContentAlignment="Center"
+         FontSize="16"
+         KeyDown="TxtPaidAmount_KeyDown"/>
+
+                    <TextBlock x:Name="TxtDiscount"
+           Margin="0,8"
+           Foreground="#DC2626"
+           FontWeight="Bold"
+           FontSize="16"
+           Text=" İndirim : 0.00 ₺"/>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10">
+
+                        <RadioButton x:Name="RbCash"
+                                     Content="Nakit 💵"
+                                     IsChecked="True"
+                                     Margin="15,0"/>
+
+                        <RadioButton x:Name="RbCard"
+                                     Content="Kart 💳"
+                                     Margin="15,0"/>
+
+                    </StackPanel>
+
+                    <Button Content="Satışı Tamamla"
+                            Height="50"
+                            Background="#10B981"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Click="CompleteSale_Click"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

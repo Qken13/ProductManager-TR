@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="ProductManager.SearchProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="LeftToRight">
+
+    <Grid Background="#F3F4F6">
+
+        <Border Background="White"
+                CornerRadius="15"
+                Padding="20"
+                Margin="20">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- SEARCH -->
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,0,15">
+
+                    <TextBox x:Name="TxtSearch"
+                             Width="350"
+                             Height="40"
+                             FontSize="16"
+                             HorizontalContentAlignment="Right"
+                             Margin="5"
+                             KeyDown="TxtSearch_KeyDown"/>
+
+                    <Button Content="Ara"
+                            Width="120"
+                            Height="40"
+                            Click="Search_Click"/>
+
+                    <Button Content="Tümünü Göster"
+                            Width="120"
+                            Height="40"
+                            Margin="10,0,0,0"
+                            Click="LoadAll_Click"/>
+
+                </StackPanel>
+
+                <!-- GRID -->
+                <DataGrid x:Name="GridProducts"
+          Grid.Row="1"
+          AutoGenerateColumns="False"
+          IsReadOnly="False"
+          CanUserAddRows="False"
+          CanUserDeleteRows="False"
+          FontSize="15"
+          RowHeight="45"
+          SelectionMode="Single"
+          SelectionUnit="FullRow"
+          FlowDirection="LeftToRight">
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected"
+                                         Value="True">
+                                    <Setter Property="Background"
+                                            Value="#3B82F6"/>
+                                    <Setter Property="Foreground"
+                                            Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+
+                        <!-- CHECKBOX -->
+                        <DataGridTemplateColumn Width="50"
+                                                Header="✔">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox
+                                        FlowDirection="LeftToRight"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        IsChecked="{Binding IsSelected,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Kod"
+                                            Binding="{Binding Code}"
+                                            Width="*"/>
+
+                        <DataGridTextColumn Header="Ad"
+                                            Binding="{Binding Name}"
+                                            Width="*"/>
+
+                        <DataGridTextColumn Header="Kategori"
+                                            Binding="{Binding Category}"
+                                            Width="*"/>
+                        <DataGridTextColumn Header="Durum"
+                                             Binding="{Binding Condition}"
+                                             Width="*"/>
+
+                        <DataGridTextColumn Header="Alış"
+                                            Binding="{Binding BuyPrice}"
+                                            Width="*"/>
+
+                        <DataGridTextColumn Header="Satış"
+                                            Binding="{Binding SellPrice}"
+                                            Width="*"/>
+
+                        <DataGridTextColumn Header="Adet"
+                                            Binding="{Binding Stock}"
+                                            Width="*"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+                <!-- DELETE -->
+                <Button Content="Seçili Ürünleri Sil"
+                        Grid.Row="2"
+                        Height="45"
+                        Margin="0,15,0,0"
+                        Background="#EF4444"
+                        Foreground="White"
+                        FontSize="16"
+                        Click="Delete_Click"/>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>
