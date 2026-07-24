@@ -39,8 +39,7 @@ namespace ProductManager
             new SqliteCommand(productsTable, connection)
                 .ExecuteNonQuery();
 
-            // Eğer eski veritabanı kullanılıyorsa
-            // Condition sütununu ekle
+            
             try
             {
                 string alterTable =
@@ -51,7 +50,7 @@ namespace ProductManager
             }
             catch
             {
-                // Sütun zaten varsa hata verme
+                
             }
 
             // ======================
@@ -70,8 +69,7 @@ CREATE TABLE IF NOT EXISTS Sales (
     SaleDate TEXT,
     IsReturn INTEGER DEFAULT 0
 );";
-            // Eğer eski veritabanı kullanılıyorsa
-            // Discount sütununu ekle
+            
             try
             {
                 string alterSales =
@@ -82,7 +80,7 @@ CREATE TABLE IF NOT EXISTS Sales (
             }
             catch
             {
-                // Sütun zaten varsa hata verme
+                
             }
 
             new SqliteCommand(salesTable, connection)
