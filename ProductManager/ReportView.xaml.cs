@@ -114,7 +114,7 @@ namespace ProductManager
             using var connection = new SqliteConnection(connectionString);
             connection.Open();
 
-            // 🔥 SADECE TEK SATIŞI İADE ET
+            
             string updateSale = @"
                 UPDATE Sales
                 SET IsReturn = 1
@@ -126,7 +126,7 @@ namespace ProductManager
                 cmd.ExecuteNonQuery();
             }
 
-            // 🔥 STOK GERİ EKLE
+            
             string updateStock = @"
                 UPDATE Products
                 SET Stock = Stock + @qty
